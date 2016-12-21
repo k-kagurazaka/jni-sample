@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+dependencies {
+    compile project(':gen-libs')
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+task clearJar(type: Delete) {
+    group = "build"
+    delete 'build/libs/' + JAR_NAME
+}
+
+task makeJar(type: Copy) {
+    group = "build"
+
+    def jarName = "${project.name}.jar"
+    from('build/libs/')
+    into('../distribution/')
+    include(jarName)
+    rename(jarName, JAR_NAME)
+}
+
+makeJar.dependsOn(clearJar, build)

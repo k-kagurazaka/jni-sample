@@ -1,0 +1,1 @@
+include ':gen-libs', ':java-lib'
