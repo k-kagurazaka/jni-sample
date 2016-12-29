@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SomeNativeClassWrapper wrapper = new SomeNativeClassWrapper();
-        int result = wrapper.calculate();
+        int result = wrapper.getLangth("Hello!");
 
         String message = "No error";
         try {
@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             message = e.getMessage();
         }
+
+        byte[] array = new byte[] { 0, 1, 2, 3 };
+        wrapper.doubleArray(array);
 
         wrapper.close();
 

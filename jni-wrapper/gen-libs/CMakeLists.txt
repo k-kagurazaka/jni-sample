@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.4.1)
 set(CMAKE_VERBOSE_MAKEFILE on)
 
 add_library(native-lib SHARED
+    src/main/cpp/helper/JavaByteArray.cpp
+    src/main/cpp/helper/JavaString.cpp
     src/main/cpp/jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper.cpp
 )
 

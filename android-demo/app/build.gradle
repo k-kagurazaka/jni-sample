@@ -12,12 +12,12 @@ android {
     }
     sourceSets {
         main {
-            jniLibs.srcDirs = ['src/main/jniLibs']
+            jniLibs.srcDirs = ['../../jni-wrapper/distribution/libs/android']
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: '../../jni-wrapper/distribution', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
 }

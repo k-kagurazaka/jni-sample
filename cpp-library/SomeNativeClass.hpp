@@ -12,11 +12,15 @@
 
 class CPPLIBRARY_API SomeNativeClass {
 public:
-	SomeNativeClass();
+    SomeNativeClass();
 
     virtual ~SomeNativeClass();
 
-    int calculate();
+    int getId() const;
+
+    int getLength(const char *text) const;
+
+    void doubleArray(unsigned char *array, unsigned int length) const;
 
     void throwException();
 };

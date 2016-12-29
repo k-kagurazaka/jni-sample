@@ -25,11 +25,27 @@ JNIEXPORT void JNICALL Java_jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper
 
 /*
  * Class:     jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper
- * Method:    nativeCalculate
+ * Method:    nativeGetId
  * Signature: (J)I
  */
-JNIEXPORT jint JNICALL Java_jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper_nativeCalculate
+JNIEXPORT jint JNICALL Java_jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper_nativeGetId
   (JNIEnv *, jclass, jlong);
+
+/*
+ * Class:     jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper
+ * Method:    nativeGetLength
+ * Signature: (JLjava/lang/String;)I
+ */
+JNIEXPORT jint JNICALL Java_jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper_nativeGetLength
+  (JNIEnv *, jclass, jlong, jstring);
+
+/*
+ * Class:     jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper
+ * Method:    nativeDoubleArray
+ * Signature: (J[B)V
+ */
+JNIEXPORT void JNICALL Java_jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper_nativeDoubleArray
+  (JNIEnv *, jclass, jlong, jbyteArray);
 
 /*
  * Class:     jp_keita_kagurazaka_jnisample_SomeNativeClassWrapper

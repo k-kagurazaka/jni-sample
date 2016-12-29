@@ -13,20 +13,25 @@ public class SomeNativeClassWrapper implements Closeable {
         nativePtr = nativeCreate();
     }
 
-    public int calculate() {
-        requireNotClosed();
-        return nativeCalculate(nativePtr);
+    public int getId() {
+        return nativeGetId(getNativePtr());
+    }
+
+    public int getLangth(String text) {
+        return nativeGetLength(getNativePtr(), text);
+    }
+
+    public void doubleArray(byte[] array) {
+        nativeDoubleArray(getNativePtr(), array);
     }
 
     public void throwException() {
-        requireNotClosed();
-        nativeThrowException(nativePtr);
+        nativeThrowException(getNativePtr());
     }
 
     @Override
     public void close() {
-        requireNotClosed();
-        nativeDestroy(nativePtr);
+        nativeDestroy(getNativePtr());
     }
 
     private void requireNotClosed() {
@@ -35,11 +40,20 @@ public class SomeNativeClassWrapper implements Closeable {
         }
     }
 
+    private long getNativePtr() {
+        requireNotClosed();
+        return nativePtr;
+    }
+
     private static native long nativeCreate();
 
     private static native void nativeDestroy(long nativePtr);
 
-    private static native int nativeCalculate(long nativePtr);
+    private static native int nativeGetId(long nativePtr);
+
+    private static native int nativeGetLength(long nativePtr, String text);
+
+    private static native void nativeDoubleArray(long nativePtr, byte[] array);
 
     private static native void nativeThrowException(long nativePtr);
 }
